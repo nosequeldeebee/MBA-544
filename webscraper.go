@@ -17,6 +17,12 @@ type Faculty struct {
 }
 
 func main() {
+	/* SETUP:
+	create database
+		sqlite3 faculty.db
+		.open faculty.db
+	go get dependencies above
+	*/
 	// Open SQLite database
 	db, err := sql.Open("sqlite3", "./faculty.db")
 	if err != nil {
