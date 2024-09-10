@@ -81,25 +81,6 @@ func scrapeFaculty() ([]Faculty, error) {
 	return faculties, nil
 }
 
-func getFacultyFromDB(db *sql.DB) ([]Faculty, error) {
-	rows, err := db.Query("SELECT name, title FROM faculty")
-	if err != nil {
-		return nil, err
-	}
-	defer rows.Close()
-
-	var faculties []Faculty
-	for rows.Next() {
-		var f Faculty
-		err := rows.Scan(&f.Name, &f.Title)
-		if err != nil {
-			return nil, err
-		}
-		faculties = append(faculties, f)
-	}
-
-	return faculties, nil
-}
 
 var websiteContent = `<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
