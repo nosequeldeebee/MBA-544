@@ -16,7 +16,7 @@ func main() {
 		s := fmt.Sprintf("%x", i) + t
 		if !isHashValid(calculateHash(s), Difficulty) {
 			fmt.Println(calculateHash(s), " do more work!")
-			time.Sleep(time.Second)
+			time.Sleep(2 * time.Second)
 			continue
 		} else {
 			fmt.Println(s)
